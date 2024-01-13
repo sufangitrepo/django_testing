@@ -1,0 +1,61 @@
+First of all Each type of testing (Unit, Integrated, Function, end-to_end)
+
+" 
+   Try something 
+   and reprt pass or fail
+                           "
+                        
+So that why There is a
+Pattern for writting test 
+
+1. Arrange -> 
+    Prepare state that want to try/ on which to perform action
+    It can be a  Databse setup on which you want to perform action
+    can be special settings
+    if want to connect to web first need to login to access api so first login
+    "
+       So simply in this phase prepare the state to
+       perform action that want to test 
+                                          "
+
+2. Act     -> 
+    This phase is performing action that want to test
+    it could be 
+      . function
+      . calling api
+      . interacting with web page
+    So this phase return some sort of response (data, http response etc)
+
+
+3. Assert  -> 
+    In this phase we can assert expected outcomes 
+    for example we can test the recevied data from second phase
+    with expected outcome 
+    that is actually called testing
+
+4. Fixtures
+   Fixtures are actually some decorators that run at arrange state
+   before act phase so it is the right place we will arrange kind of state
+   to perform action like (databse connectiong, collecting data from database, ) etc
+   So finaly fixture will use in arrange phase   
+   
+   fixture has different scope it can be call just once or utilize for other tests
+    for a function,
+    for a class,
+    for a module, or
+    for a session
+   it totally depends scope that we passed in fixture decorator
+
+   function  => this scope used of calling fixture for every function
+   class     => for every class
+   module    => for every module
+   session   => for one session
+
+   syntax 
+     @pytest.fixture(scope=" here scope ")
+
+
+1. Packages
+    1. pytest_django - includes this(pytest, iniconfig)
+    2. pytest_factoryboy - includes this(factory-boy)
+    3. facker (optional)   
